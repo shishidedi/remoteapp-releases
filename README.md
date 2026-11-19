@@ -1,19 +1,26 @@
-# RemoteApp Updates
+# RemoteApp
 
-RemoteApp 的公开更新发布仓库。
+Windows x64 双向远程桌面控制 APP，组合 Sunshine、Moonlight 及 Tailscale 或 Radmin VPN。
 
-## 更新
+## 下载和首次使用
 
-0.4.1 及以后版本会从此仓库匿名检查并下载更新，无需 GitHub 账号、邀请或访问令牌。软件启动时及运行期间每 4 小时检查一次，下载完成后由用户点击重启安装。
+进入本仓库 Releases，选择最新正式版本的 `RemoteApp-<版本>-win-x64-full.zip`，用同页 SHA256SUMS.txt 核对哈希后完整解压，运行 RemoteApp.exe。
 
-Release 中的 update ZIP 用于已有部署。首次使用需自行准备 Sunshine、Moonlight 及所需 VPN，并完成网络设置、Sunshine 账号初始化和 PIN 配对。完整组件包目前通过项目所有者的私有部署渠道提供，组件再分发范围见包内 THIRD-PARTY.md。
+APP 自带 .NET 运行时。第三方软件通过 APP 内的官方下载按钮或包内 README.md 提供的链接安装。两端准备 Sunshine、Moonlight 及所需 VPN，完成组网、Sunshine 账号设置及 PIN 配对。
 
-## 0.4.1
+| 组件 | 官方下载 |
+|---|---|
+| Sunshine | https://github.com/SunshineStream/Sunshine/releases/latest |
+| Moonlight | https://github.com/moonlight-stream/moonlight-qt/releases/latest |
+| Tailscale | https://tailscale.com/download/windows |
+| Radmin VPN | https://www.radmin-vpn.com/ |
+| VC++ x64 运行库 | https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist |
+
+## 功能与更新
 
 - Tailscale、Radmin VPN、自动选择与手动切换重连四种串流模式。
-- 串流参数保存与独立 Moonlight 设置入口。
-- 文件传输沿用 Tailscale Taildrop。
+- APP 内串流参数保存及独立 Moonlight 设置入口。
+- 文件传输使用 Tailscale Taildrop，沿用既有同账号设备模式。
+- 匿名检查及下载更新，无需 GitHub 登录或访问邀请。启动时及运行期间每 4 小时检查，下载完成后点击重启安装。
 
-自动选路使用连接前端口和延迟探测。实际串流质量需在 Moonlight 中验证。
-
-上游项目包括 Moonlight、Sunshine、Tailscale 和 Radmin VPN，各自适用原项目协议。此仓库中的应用更新包附带相应授权记录。
+`update.zip` 用于已有部署，`full.zip` 用于首次部署。第三方软件适用各自协议并通过官方渠道更新。自动选路依据连接前端口与延迟探测，实际串流效果请在 Moonlight 中验收。
